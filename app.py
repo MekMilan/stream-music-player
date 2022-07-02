@@ -65,11 +65,12 @@ def make_playlist():
             list_of_url.append(f[count])
         line.close()
 
-    with open(f'playlist-{NOME}.txt', 'w') as txt_file:
+    with open(f'{NOME}.txt', 'w') as txt_file:
         for line in list_of_url:
             txt_file.write("".join(line))
 
     os.remove(f'temp-{NOME}.txt')
+    os.replace(f'{NOME}.txt', f'playlists\\{NOME}.txt')
     cls()
     print('Process done ! (type ENTER to continue)')
     input()
